@@ -3,11 +3,46 @@
   <head>
     <title>Code-RT</title>
 
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/index.css" />
   </head>
   <body>
     <div id="landingPage">
       <h1 class="header">Code-RT</h1>
+      <h3 id="subtitle">Real time coding for Group Projects</h3>
+
+      <br /><br /><br /><br /><br /><br /><br /><br />
+      <a href="#clientId">
+        <button class="btn btn-outline-success btn-connect">Get Started</button>
+      </a>
+
+      <br /><br /><br /><br /><br /><br /><br /><br />
+
+      <p id="clientId" class="idText" style="padding-top: 50px;">Id:</p>
+      <p id="clientPassword" class="passwordText">Password:</p>
+      <button
+        class="btn btn-outline-success btn-connect"
+        onclick="showConnectForm()"
+      >
+        Connect with Partner
+      </button>
+
+      <form id="connectForm">
+        <div class="form-group">
+          <label class="connectLabel">Partner's ID</label>
+          <input type="text" class="form-control" placeholder="Partner's ID" />
+        </div>
+        <div class="form-group">
+          <label class="connectLabel">Partner's Password</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Partner's Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Connect</button>
+      </form>
+
       <div id="codeContainer">
         <div id="code">
           <div class="colorStrip"><h5 id="viewH5">Your View</h5></div>
