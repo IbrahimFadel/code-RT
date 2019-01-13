@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code-RT</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+  </head>
+  <body>
+    <div id="landingPage">
+      <h1 class="header">Code-RT</h1>
+      <div id="codeContainer">
+        <div id="code">
+          <div class="colorStrip"><h5 id="viewH5">Your View</h5></div>
+          <textarea
+            id="clientTextArea"
+            class="textarea"
+            placeholder="Write your code here..."
+            autocomplete="on"
+          ></textarea>
+        </div>
+        <div id="partnerCode">
+          <div class="colorStrip"><h5 id="viewH5">Partner's View</h5></div>
+          <textarea
+            id="partnerTextArea"
+            class="textarea"
+            disabled
+            readonly
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.js"></script>
+  </body>
+</html>
