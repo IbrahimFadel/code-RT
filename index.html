@@ -18,8 +18,8 @@
 
       <br /><br /><br /><br /><br /><br /><br /><br />
 
-      <p id="clientId" class="idText" style="padding-top: 50px;">Id:</p>
-      <p id="clientPassword" class="passwordText">Password:</p>
+      <p id="clientId" class="idText" style="padding-top: 50px;">Your Id:</p>
+      <p id="clientPassword" class="passwordText">Your Password:</p>
       <button
         class="btn btn-outline-success btn-connect"
         onclick="showConnectForm()"
@@ -30,7 +30,12 @@
       <form id="connectForm">
         <div class="form-group">
           <label class="connectLabel">Partner's ID</label>
-          <input type="text" class="form-control" placeholder="Partner's ID" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Partner's ID"
+            id="partnerId"
+          />
         </div>
         <div class="form-group">
           <label class="connectLabel">Partner's Password</label>
@@ -38,9 +43,12 @@
             type="text"
             class="form-control"
             placeholder="Partner's Password"
+            id="partnerPassword"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Connect</button>
+        <button type="button" class="btn btn-primary" onclick="connect()">
+          Connect
+        </button>
       </form>
 
       <div id="codeContainer">

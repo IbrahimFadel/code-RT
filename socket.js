@@ -3,6 +3,7 @@ const socket = io();
 var partnerTextArea = document.getElementById("partnerTextArea");
 var clientTextArea = document.getElementById("clientTextArea");
 var code = [];
+var pairs = [];
 
 socket.on("connection", function(socket) {
   console.log("hi");
@@ -24,9 +25,16 @@ socket.on("sendPassword", function(password) {
 document.addEventListener("keydown", keyCheck);
 function keyCheck(e) {
   code.push(e.key);
-  //socket.emit("dataReceived", code, function(data) {
-  //createTextArea(data);
-  //});
+  let clientId = document.getElementById("clientId").innerHTML.slice(9, -1);
+  for (let i = 0; i < pairs.length; i++) {
+    //console.log(pairs[i][0].id);
+    if (pairs[i][0].id == clientId) {
+      console.log("Your Id has been found in pair: " + i);
+    }
+  }
+  socket.emit("dataReceived", code, function(data) {
+    createTextArea(data);
+  });
   let char = String.fromCharCode(e.keyCode);
   switch (e.keyCode) {
     case 8:
@@ -83,12 +91,37 @@ function createTextArea(data) {
   for (let i = 0; i < data.length; i++) {
     text += data[i];
   }
-  console.log(text);
+  //console.log(text);
   newElement.value = text;
   parent.append(newElement);
 }
 
 function showConnectForm() {
-  console.log("hi");
   document.getElementById("connectForm").style.display = "block";
+}
+
+function connect() {
+  partnerId = document.getElementById("partnerId").value;
+  partnerPassword = document.getElementById("partnerPassword").value;
+
+  clientId = document.getElementById("clientId").innerHTML.slice(9, -1);
+  clientPassword = document.getElementById("clientPassword").innerHTML;
+
+  let partner = {
+    id: partnerId,
+    password: partnerPassword
+  };
+
+  let client = {
+    id: clientId,
+    password: partnerPassword
+  };
+
+  let pair = [client, partner];
+
+  pairs.push(pair);
+
+  //console.log(clientPassword.slice(14, -1));
+
+  return pairs;
 }
